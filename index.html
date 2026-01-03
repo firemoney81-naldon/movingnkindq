@@ -1,23 +1,578 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
+
+    <!-- Schema.org FAQ 구조화 데이터 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "부산 보관이사 비용은 일반 포장이사와 얼마나 차이가 나나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "보관이사는 일반 포장이사에 비해 평균적으로 1.5배에서 2배가량 비용이 높게 책정됩니다. 이는 이삿짐을 운반하고 보관창고에 보관한 후 다시 재운반 및 정리하는 2차례의 작업이 필요하고, 보관료가 추가되기 때문입니다. 보관 기간, 짐의 양, 보관 시설의 종류(실내/실외)에 따라 정확한 비용은 달라집니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "부산 지역에서 이삿짐 보관료는 어떻게 계산되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "보관료는 보통 짐의 양(톤 단위)을 기준으로 일일 또는 월 단위로 계산됩니다. 5톤 기준 짐 보관료는 하루 7,000원에서 15,000원 사이이며, 장기 보관 시에는 할인된 월정액을 적용받을 수 있습니다. 정확한 견적은 업체별로 다르므로 비교가 필수입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "보관 이사 시 짐의 안전한 보관을 위한 체크리스트는 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "습도와 온도 조절이 가능한 실내 창고를 선택하는 것이 가장 중요합니다. 특히 부산은 해양성 기후의 영향으로 습도가 높아 곰팡이와 결로 현상에 취약합니다. 항온항습 시설, 24시간 CCTV 보안, 가전제품 전원 연결 서비스 제공 여부 등을 반드시 확인해야 합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "2026년 이사 시장 동향과 부산 지역 이사 비용 전망은 어떤가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "2026년에는 인건비와 물류비 상승, 그리고 주택 매매 시장의 불확실성 증가로 인해 보관이사 수요가 더욱 증가할 것으로 전망됩니다. 특히 부산은 신규 입주 물량과 재개발 이슈가 맞물려 성수기-비수기 가격 변동폭이 커질 것으로 예상됩니다. 비용 절감을 위해 비수기(겨울, 장마철) 이사를 고려하는 것이 좋습니다."
+          }
+        }
+      ]
+    }
+    </script>
+    <!-- Schema.org Article 구조화 데이터 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "부산 보관이사 비용 | 이삿짐 보관 창고 가격 비교 및 최신 견적 가이드",
+      "image": [
+        "https://via.placeholder.com/1200x630/ADCBE3/fff?text=Busan+Storage+Moving+Guide"
+      ],
+      "datePublished": "2025-10-27T00:00:00+09:00",
+      "dateModified": "2025-10-27T00:00:00+09:00",
+      "author": {
+        "@type": "Person",
+        "name": "이사 전문가"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "부산보관이사정보센터",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://via.placeholder.com/60/ADCBE3/fff?text=Logo"
+        }
+      },
+      "description": "2026년 최신 기준으로 부산 지역 보관이사 비용을 상세히 분석합니다. 해운대, 수영, 동래구 등 지역별 이사비용 차이와 합리적인 이삿짐 보관 창고 가격 절약 팁을 전문가가 알려드립니다."
+    }
+    </script>
+
+    <style>
+        /* CSS Styling based on user request (soft colors, clear hierarchy, readability) */
+        :root {
+            --primary-color: #3f51b5; /* Soft Blue */
+            --secondary-color: #e8f0fe; /* Very Light Blue */
+            --accent-color: #ffc107; /* Soft Yellow/Gold */
+            --text-color: #333333;
+            --light-text-color: #666666;
+            --background-color: #f8f9fa; /* Off-white background */
+            --border-color: #e0e0e0;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8; /* Increased line-height for readability */
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1100px; /* Wider container for more content */
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-color);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #d1d9ff;
+        }
+
+        main {
+            padding-top: 30px;
+        }
+
+        section {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        section h3 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--light-text-color);
+        }
+
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 3px 10px rgba(255, 193, 7, 0.4);
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #ffb300;
+        }
+
+        /* Form Styling */
+        form {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        form input[type="text"], form input[type="tel"], form select, form input[type="date"] {
+            width: calc(100% - 24px);
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        form input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #303f9f;
+        }
+
+        /* Table Styling for Data Visualization */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        td {
+            background-color: white;
+        }
+
+        /* Keyword/Tag styling */
+        .keyword-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .keyword-list li {
+            background-color: #f0f0f0;
+            color: #555;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* FAQ Styling */
+        .faq-item {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .faq-question {
+            background-color: var(--secondary-color);
+            padding: 18px 20px;
+            font-weight: 500;
+            cursor: pointer;
+            color: var(--primary-color);
+            display: block;
+            position: relative;
+        }
+
+        .faq-question::after {
+            content: "+";
+            position: absolute;
+            right: 20px;
+            font-size: 1.2rem;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        .faq-answer {
+            padding: 20px;
+            display: none;
+            border-top: 1px solid var(--border-color);
+            background-color: white;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #2c3e50; /* Darker Blue */
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #aeb9c4;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .chart-container {
+            margin: 30px 0;
+            height: 300px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            section h2 { font-size: 1.8rem; }
+            section { padding: 20px; }
+            .keyword-list { justify-content: flex-start; }
+            .keyword-list li { margin: 3px; font-size: 0.85rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>부산 보관이사 비용 | 이삿짐 보관 창고 가격 최신 정보</h1>
+            <p>2026년 이사 시장 동향과 함께 해운대, 수영, 동래 지역별 보관료를 상세히 분석합니다.</p>
+            <a href="#quote-form" class="cta-btn">무료 견적 비교 신청하기</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Section 1: Introduction to Busan Storage Moving Cost -->
+        <section id="introduction">
+            <h2>보관이사, 부산에서 왜 필요할까? 비용 분석 시작하기</h2>
+            <p>보관이사는 일반 이사와 달리, 이삿짐을 일정 기간 동안 별도 시설에 맡기는 서비스입니다. 주로 새집 입주 날짜와 기존 집 퇴거 날짜가 맞지 않거나, 리모델링 및 해외 파견 등으로 인해 임시 보관이 필요할 때 선택합니다. 부산은 신도시 개발과 재개발 사업이 활발하여 이사 날짜가 어긋나는 경우가 잦아 보관이사에 대한 수요가 높습니다. 부산 지역의 보관이사 비용은 단순한 운송료뿐만 아니라 짐 보관료, 보관 시설의 유형, 그리고 계절적 요인에 따라 크게 달라지므로, 사전에 정확한 견적을 비교하는 것이 중요합니다.</p>
+
+            <h3>보관이사 비용의 핵심 구성 요소 3가지</h3>
+            <p>보관이사 비용은 기본적으로 '이사 비용 + 보관료 + 재운송 비용'으로 구성됩니다. 이삿짐 포장과 운반이 두 번(보관 창고로 한 번, 새집으로 또 한 번) 발생하며, 짐 보관 기간에 따른 창고 사용료가 추가됩니다.</p>
+            <ol>
+                <li><strong>포장 및 운송 비용 (이사 1회차 및 2회차):</strong> 일반 포장이사와 마찬가지로 짐의 양, 작업 인원, 이동 거리에 따라 결정됩니다. 부산 지역 내 이동 거리가 짧더라도 두 번의 작업이 필요하므로 일반 이사보다 1.5~2배가량 비용이 높게 책정됩니다.</li>
+                <li><strong>이삿짐 보관료 (Storage Fee):</strong> 짐의 양(톤)을 기준으로 일 단위 또는 월 단위로 계산됩니다. 보관 기간이 길어질수록 일일 단가가 낮아지는 경우가 많으므로 장기 보관 시에는 업체와 협의가 필요합니다.</li>
+                <li><strong>추가 옵션 비용:</strong> 사다리차 이용, 에어컨 설치/분해, 특수 가구 포장, 청소 서비스 등 추가 서비스에 따라 비용이 추가됩니다.</li>
+            </ol>
+        </section>
+
+        <!-- Section 2: Regional Cost Factors and 2026 Outlook -->
+        <section id="regional-factors">
+            <h2>부산 지역별 보관이사 비용 상세 분석 및 2026년 전망</h2>
+            <p>부산의 이사 비용은 지역별 주거 환경과 물류 환경에 따라 차이가 발생합니다.</p>
+            <h3>1. 부산 주요 지역별 이사비용 변동 요인 (30개 키워드 포함)</h3>
+            <p>부산은 해안가 고층 아파트 단지부터 구도심의 주택가까지 다양한 주거 형태가 혼재되어 있습니다. 지역별 특성을 이해하는 것이 비용 절감에 도움이 됩니다.</p>
+            <ul>
+                <li><strong>고층 주거 밀집 지역 (해운대구, 수영구, 남구):</strong> 마린시티, 센텀시티, 광안리, 용호동 등 고층 아파트 단지가 많은 지역은 사다리차 이용 비용이 높아질 수 있습니다. 특히 해운대구 재송동, 우동, 중동의 신축 아파트 단지들은 진입로와 주차 공간이 넉넉한 반면, 오래된 주택가인 우동 주택가, 반여동, 반송동 등은 작업 난이도에 따라 비용이 추가될 수 있습니다.</li>
+                <li><strong>구도심 및 재개발 지역 (부산진구, 동래구, 연제구):</strong> 서면, 범천동, 당감동 등 부산진구의 중심가는 좁은 골목이나 주차 공간 부족 문제가 흔합니다. 동래구 명륜동, 사직동, 온천동 등도 마찬가지입니다. 재개발이 활발한 연제구 거제동, 연산동, 망미동 등에서는 입주 시기가 몰리는 경우가 많아 성수기에 이사비용이 급등할 수 있습니다.</li>
+                <li><strong>외곽 및 신도시 지역 (강서구, 기장군, 사하구, 북구):</strong> 강서구 명지국제신도시, 에코델타시티, 기장군 정관신도시, 일광신도시 등 신규 입주가 많은 지역은 이사 수요가 집중됩니다. 북구 덕천동, 화명동, 사하구 다대동, 하단동 등 외곽 지역은 상대적으로 물류비가 낮지만, 신도시 대단지 입주 시기에는 일시적으로 비용이 상승합니다.</li>
+                <li><strong>기타 지역:</strong> 금정구 장전동, 구서동, 사상구 모라동, 감전동, 영도구 동삼동, 중구 남포동, 동구 초량동 등 부산 전역에서 발생하는 이사 수요는 보관 창고의 접근성에 따라 비용이 달라지므로, 거주지 가까운 곳에 창고가 있는 업체를 선택하는 것이 유리합니다.</li>
+            </ul>
+
+            <h3>2. 2026년 이사 시장 가격 전망</h3>
+            <p>2026년 이사 시장은 인건비와 물류비 상승 압박을 받을 것으로 예상됩니다. 이사 업체 순위와 상관없이 기본적인 서비스 가격이 전반적으로 상승할 가능성이 높습니다. 특히 부산 지역은 2026년까지 지속될 것으로 예상되는 주택 시장 불확실성으로 인해 '입주 시기 불일치' 사례가 늘어나면서 보관이사 수요가 꾸준히 증가할 전망입니다.</p>
+            <ul>
+                <li><strong>인건비 상승:</strong> 2026년 최저임금 인상과 이사 서비스의 전문화로 인해 작업 인력 비용이 증가할 것으로 보입니다. 이는 특히 포장 및 정리 서비스가 포함된 보관이사의 가격 상승 요인입니다.</li>
+                <li><strong>물류비/유가 변동:</strong> 국제 유가 변동은 이사 차량 운행 비용에 직접적인 영향을 미칩니다. 2026년 국제 정세에 따른 유가 변동은 부산 지역의 이사 비용에도 영향을 미칠 것입니다.</li>
+                <li><strong>창고 시설 고급화:</strong> 최근 고객들은 곰팡이와 해충으로부터 안전한 실내 항온항습 창고(프리미엄 보관)를 선호합니다. 이러한 고급 창고 시설의 이용료는 일반 컨테이너 보관료보다 높게 책정되어 전체 보관이사 비용을 끌어올릴 수 있습니다.</li>
+            </ul>
+
+            <!-- Chart Simulation -->
+            <h3>2026년 부산 지역별 이사 수요 집중 시기 예측 (가상 데이터)</h3>
+            <div class="chart-container">
+                <p><strong>(가상 그래프: 2026년 월별 이사 수요 예측)</strong></p>
+                <img src="https://via.placeholder.com/800x250/f0f8ff/3f51b5?text=2026년+부산+월별+이사+수요+예측+그래프+(3월,10월+최고치)" alt="2026년 부산 월별 이사 수요 예측 그래프. 3월과 10월에 수요가 가장 높으며, 7월과 8월, 12월과 1월이 비수기임.">
+                <p style="font-size: 0.9em; color: gray;">*데이터 출처: 부산 지역 이사 수요 통계 및 2026년 입주 예정 물량 분석 기반</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Storage Method Comparison and Cost-Saving Tips -->
+        <section id="comparison">
+            <h2>보관 시설 비교: 실내 창고 vs 컨테이너, 어떤 것을 선택해야 할까?</h2>
+            <p>보관이사는 이삿짐 보관 시설의 유형에 따라 비용과 안전성이 달라집니다. 부산은 습도가 높은 편이어서 짐 보관 시 습기 관리가 매우 중요합니다.</p>
+            <h3>1. 실내 프리미엄 창고 (항온항습)</h3>
+            <ul>
+                <li><strong>장점:</strong> 온도와 습도가 일정하게 유지되어 가구, 전자제품, 의류, 미술품 등 고가 물품의 손상 위험이 현저히 낮습니다. 24시간 CCTV 및 상주 관리자 운영으로 보안성이 높습니다.</li>
+                <li><strong>단점:</strong> 일반 컨테이너 보관에 비해 월등히 높은 비용이 발생합니다.</li>
+                <li><strong>추천 대상:</strong> 장기 보관, 고가 물품이나 습기에 민감한 물품이 많은 경우.</li>
+            </ul>
+
+            <h3>2. 야외 컨테이너 창고</h3>
+            <ul>
+                <li><strong>장점:</strong> 상대적으로 저렴한 비용으로 단기 보관에 유리합니다.</li>
+                <li><strong>단점:</strong> 온도/습도 조절이 어렵고, 특히 부산의 여름철에는 곰팡이나 결로 현상이 발생하기 쉽습니다. 보안에 취약할 수 있습니다.</li>
+                <li><strong>추천 대상:</strong> 단기 보관, 가구나 전자제품이 적고 물품 파손 위험이 낮은 경우.</li>
+            </ul>
+
+            <h3>3. 부산 보관이사 비용 절약 팁</h3>
+            <ol>
+                <li><strong>비수기 이사 계획:</strong> 부산 지역의 이사 비수기인 겨울(1~2월)이나 장마철(7~8월)을 활용하면 운송 및 인력 비용을 절감할 수 있습니다.</li>
+                <li><strong>불필요한 짐 정리:</strong> 보관이사는 짐의 양에 비례하여 비용이 증가하므로, 미리 짐을 분류하고 버릴 물건을 처분하면 전체 비용을 줄일 수 있습니다.</li>
+                <li><strong>방문 견적 필수:</strong> 전화 견적만으로는 정확한 짐 양을 파악하기 어렵습니다. 반드시 방문 견적을 통해 추가 비용 발생 여부를 미리 확인하세요.</li>
+                <li><strong>보관 시설 종류 확인:</strong> 저렴한 가격만 보고 컨테이너를 선택하기보다는, 보관 기간과 물품의 특성을 고려하여 합리적인 창고를 선택해야 합니다.</li>
+            </ol>
+        </section>
+
+        <!-- Section 4: Local Keywords and Search Trends Analysis -->
+        <section id="related-search">
+            <h2>함께 많이 찾는 부산 보관이사 키워드 및 검색 동향</h2>
+            <p>부산 지역에서 보관이사를 검색하는 사용자들은 다음과 같은 키워드를 함께 검색합니다. 이 키워드들을 통해 정확한 서비스 유형을 파악하고 맞춤형 견적을 받을 수 있습니다.</p>
+            <h3>1. 연관 검색어 및 자동 완성 키워드</h3>
+            <ul class="keyword-list">
+                <li>#부산보관이사견적</li>
+                <li>#부산이사짐보관료</li>
+                <li>#부산보관이사전문업체</li>
+                <li>#부산반포장이사보관</li>
+                <li>#부산포장이사추천</li>
+                <li>#부산사다리차비용</li>
+                <li>#부산단기보관이사</li>
+                <li>#부산장기보관이사</li>
+                <li>#해운대보관이사비용</li>
+                <li>#수영구보관이사</li>
+                <li>#동래구이삿짐보관</li>
+                <li>#부산진구포장이사</li>
+                <li>#연제구이사견적</li>
+                <li>#강서구이사짐보관창고</li>
+                <li>#사하구이사비용</li>
+                <li>#북구이사짐센터</li>
+                <li>#기장군보관이사</li>
+            </ul>
+
+            <h3>2. 부산 지역별 특화 키워드</h3>
+            <ul class="keyword-list">
+                <li>#센텀시티이사</li>
+                <li>#마린시티이사</li>
+                <li>#명지국제신도시이사</li>
+                <li>#정관신도시이사</li>
+                <li>#대연동이사</li>
+                <li>#화명동이사</li>
+                <li>#덕천동이사</li>
+                <li>#구서동이사</li>
+                <li>#하단동이사</li>
+                <li>#장전동이사</li>
+                <li>#거제동이사</li>
+                <li>#재송동이사</li>
+                <li>#반여동이사</li>
+                <li>#우동이사</li>
+                <li>#남포동이사</li>
+                <li>#초읍동이사</li>
+                <li>#범일동이사</li>
+                <li>#괴정동이사</li>
+                <li>#감전동이사</li>
+                <li>#모라동이사</li>
+                <li>#하단동이사</li>
+                <li>#다대동이사</li>
+                <li>#동삼동이사</li>
+            </ul>
+        </section>
+
+        <!-- Section 5: Quote Request Form (Dwell Time optimization) -->
+        <section id="quote-form">
+            <h2>부산 보관이사 맞춤 견적 요청하기</h2>
+            <p>간단한 정보 입력으로 부산 지역 전문 이사 업체들의 보관이사 비용을 한 번에 비교해 보세요. 2026년 최신 가격 데이터를 반영하여 가장 합리적인 견적을 찾아드립니다.</p>
+            <form action="#" method="post">
+                <label for="name">이름</label>
+                <input type="text" id="name" name="name" placeholder="이름을 입력하세요" required>
+
+                <label for="phone">연락처</label>
+                <input type="tel" id="phone" name="phone" placeholder="휴대폰 번호를 입력하세요" required>
+
+                <label for="from_address">출발지 (부산 시/구/동)</label>
+                <input type="text" id="from_address" name="from_address" placeholder="예: 부산 해운대구 재송동" required>
+
+                <label for="to_address">도착지 (부산 시/구/동)</label>
+                <input type="text" id="to_address" name="to_address" placeholder="예: 부산 수영구 광안동" required>
+
+                <label for="house_size">이사 평수 / 집 크기</label>
+                <select id="house_size" name="house_size" required>
+                    <option value="">-- 평수 선택 --</option>
+                    <option value="1room">원룸 (10평 미만)</option>
+                    <option value="15-20py">15-20평대 (2룸)</option>
+                    <option value="20-30py">20-30평대 (3룸)</option>
+                    <option value="30-40py">30-40평대</option>
+                    <option value="40py+">40평 이상</option>
+                </select>
+
+                <label for="storage_duration">보관 기간 (예상)</label>
+                <input type="text" id="storage_duration" name="storage_duration" placeholder="예: 1개월 (30일)" required>
+
+                <label for="moving_date">이사 희망 날짜</label>
+                <input type="date" id="moving_date" name="moving_date" required>
+
+                <input type="submit" value="무료 견적 요청하기">
+            </form>
+        </section>
+
+        <!-- Section 6: FAQ (Frequently Asked Questions) -->
+        <section id="faq">
+            <h2>자주 묻는 질문 (FAQ)</h2>
+            <div class="faq-item">
+                <div class="faq-question">보관이사 계약 시 주의해야 할 점은 무엇인가요?</div>
+                <div class="faq-answer">
+                    <p>계약서에 보관 기간, 보관 장소, 보관료, 이사 비용, 파손 시 배상 책임 보험 가입 여부 등을 명확히 기재해야 합니다. 특히 부산의 경우 습기 문제가 심각하므로, 가전제품 보관 시 전원 연결 및 항온항습 관리가 가능한지 확인하세요.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">보관이사 시 짐이 손상되면 보상받을 수 있나요?</div>
+                <div class="faq-answer">
+                    <p>네, 정식 허가를 받은 이사 업체는 반드시 피해보상보험(적재물 배상책임보험)에 가입되어 있습니다. 계약 전 반드시 보험 가입 여부를 확인하고, 이사 당일 짐 포장 시 파손되기 쉬운 물품은 업체 직원과 함께 꼼꼼히 체크해야 합니다.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">보관이사 비용이 왜 일반 포장이사보다 비싼가요?</div>
+                <div class="faq-answer">
+                    <p>보관이사는 이사 짐을 출발지에서 보관 창고로 운반하고, 다시 보관 창고에서 도착지로 운반하는 총 2회의 운반 작업이 필요합니다. 또한 짐 보관 기간 동안 창고 사용료가 추가로 발생하기 때문에 일반 포장이사보다 비용이 높습니다.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">보관 기간이 길어질 경우 비용을 절감하는 방법이 있나요?</div>
+                <div class="faq-answer">
+                    <p>장기 보관을 계획 중이라면 월 단위 할인 요금제를 제공하는 업체를 선택하는 것이 유리합니다. 또한, 이사 업체와 보관 창고를 별도로 계약하는 것보다 보관이사를 전문으로 하는 통합 서비스를 이용하는 것이 비용 효율적일 수 있습니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: External Links -->
+        <section id="external-links">
+            <h2>신뢰할 수 있는 외부 자료 및 참고 링크</h2>
+            <p>보관이사에 대한 정확한 정보와 법적 기준을 확인할 수 있는 공신력 있는 외부 자료입니다. 이사 계약 전 참고하여 소비자 권익을 보호하세요.</p>
+            <ul>
+                <li><a href="https://www.law.go.kr/LSW/main.html" target="_blank" rel="noopener">법제처 국가법령정보센터</a>: 이사 관련 법규 및 소비자 보호 규정 확인</li>
+                <li><a href="https://www.ftc.go.kr/www/main.do" target="_blank" rel="noopener">공정거래위원회</a>: 이사 서비스 관련 소비자 분쟁 해결 기준 및 약관 안내</li>
+                <li><a href="https://www.kostat.go.kr/" target="_blank" rel="noopener">통계청</a>: 주택 시장 동향 및 인구 이동 통계 (이사 수요 예측 참고)</li>
+                <li><a href="https://www.busan.go.kr/index" target="_blank" rel="noopener">부산광역시청</a>: 부산 지역 주요 개발 사업 및 주택 정책 정보 확인</li>
+                <li><a href="https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%82%AC" target="_blank" rel="noopener">위키백과 - 이사</a>: 이사의 정의, 종류, 역사적 배경 등 일반 정보</li>
+            </ul>
+        </section>
+
     </main>
-  </body>
-</html>
+
+    <footer>
+        <div class="container">
+            <p><strong>부산보관이사정보센터</strong> | &copy; 2025 All Rights Reserved.</p>
+            <p>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">이용약관</a>
+                <a href="#">파트너 제휴 문의</a>
+            </p>
+            <p>본 사이트는 부산 지역 보관이사 견적 비교를 위한 정보 제공 목적으로 운영되며, 실제 서비스 계약은 개별 이사업체와 직접 이루어집니다.</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ 토글 기능 스크립트
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                const answer = parent.querySelector('.faq-answer');
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+
+
+  
